@@ -7,5 +7,4 @@
 
 # Notes
 
-This right now only get's the mail adresses for given linkedin-urls. If you want to save more than just the mail adress, 
-adjust the mails.js file. 
+This right now only exports the mail adresses to CSV for given linkedin-urls. I still save all the other information like work history at data/json_run_{DATE}.json
