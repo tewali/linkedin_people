@@ -1,4 +1,3 @@
-const rawdata = require('./firstRun');
 const fs = require('fs');
 const moment = require('moment');
 
@@ -32,7 +31,7 @@ function printContacts(file) {
         }
 
         const user = {
-            name: capitalize(names[0].first_name + " " + names[0].last_name),
+            name: names && names.length && capitalize(names[0].first_name + " " + names[0].last_name),
             company: primary.job && primary.job.company && capitalize(primary.job.company.name).replace('Gmbh', 'GmbH'),
             job_title: job_title && capitalize(job_title).replace('Hr', 'HR'),
             linkedin: person.linkedin,
@@ -43,7 +42,7 @@ function printContacts(file) {
 
     }
 
-    const filename ="./data/kontakte_" + moment().format("DD_MM_YYYY_HH_mm") + ".csv";
+    const filename ="./data/contacts_" + moment().format("DD_MM_YYYY_HH_mm") + ".csv";
 
     fs.writeFile(filename, toprint, function(err) {
         if(err) {
@@ -57,7 +56,7 @@ function printContacts(file) {
 
 
 function capitalize(text) {
-    return text && text.toLowerCase()
+    return text && text && text.toLowerCase()
         .split(' ')
         .map((s) => s.charAt(0).toUpperCase() + s.substring(1))
         .join(' ');

@@ -1,10 +1,12 @@
-const results = require('./run_results').linkedin.slice(0,3);
+// TODO: replace with your data source (linkedin urls)
+const results = require('./input').linkedin;
 const request = require('request-promise');
 const fs = require('fs');
 const moment = require('moment');
 const mailfinder = require('./mails');
 
-const API_KEY='36bceb0633739071bde3e0961c4c5d312f81156c06bdbaa209ed1784b814da73';
+// TODO: REPLACE CONTENT OF API_KEY WITH YOUR KEY (https://dashboard.peopledatalabs.com/signup)
+const API_KEY=process.env.PEOPLE_DATA_LABS_KEY;
 const API_URL='https://api.peopledatalabs.com/v4/person?pretty=true&api_key=' + API_KEY;
 
 
