@@ -1,7 +1,6 @@
 const fs = require('fs');
 const moment = require('moment');
 
-
 function printContacts(file) {
     const rawdata = require(file);
     let toprint = "";

@@ -9,11 +9,11 @@ const mailfinder = require('./mails');
 const API_KEY=process.env.PEOPLE_DATA_LABS_KEY;
 const API_URL='https://api.peopledatalabs.com/v4/person?pretty=true&api_key=' + API_KEY;
 
-
 (async() => {
     let peopleEnriched = [];
     let counter = 0;
     for (const result of results) {
+        // just a failsafe for urls scraped from google (they are sometimes job postings)
         if (result.url.indexOf('jobs') !== -1) {
             continue;
         }
